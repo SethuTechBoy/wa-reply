@@ -7,245 +7,138 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0f0e;
-    --surface: #141716;
-    --border: #222825;
-    --green: #25d366;
-    --green-dim: #1a9648;
-    --amber: #f5a623;
-    --text: #e8ede9;
-    --muted: #5a6b5c;
-    --tag-bg: #1b2e1d;
+    --bg: #0d0f0e; --surface: #141716; --border: #222825;
+    --green: #25d366; --green-dim: #1a9648; --amber: #f5a623;
+    --text: #e8ede9; --muted: #5a6b5c; --tag-bg: #1b2e1d;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg); color: var(--text);
     font-family: 'IBM Plex Mono', monospace;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 16px 60px;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; padding: 32px 16px 60px;
   }
-
   header {
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 36px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    width: 100%; max-width: 700px; margin-bottom: 36px;
+    display: flex; align-items: center; gap: 14px;
   }
-
   .logo-dot {
-    width: 12px; height: 12px;
-    background: var(--green);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--green);
+    width: 12px; height: 12px; background: var(--green);
+    border-radius: 50%; box-shadow: 0 0 10px var(--green);
     animation: pulse 2s infinite;
   }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  header h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: var(--text);
-  }
-
-  header span {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    margin-left: auto;
-    text-transform: uppercase;
-  }
-
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  header h1 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: 0.08em; }
+  header span { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; margin-left: auto; text-transform: uppercase; }
   .card {
-    width: 100%;
-    max-width: 700px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 16px;
+    width: 100%; max-width: 700px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden; margin-bottom: 16px;
   }
-
   .card-label {
-    padding: 10px 16px;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 10px 16px; font-size: 10px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+    border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px;
   }
-
-  .card-label .badge {
-    background: var(--tag-bg);
-    color: var(--green);
-    border: 1px solid var(--green-dim);
-    border-radius: 4px;
-    padding: 2px 7px;
-    font-size: 9px;
-    letter-spacing: 0.1em;
+  .badge {
+    background: var(--tag-bg); color: var(--green); border: 1px solid var(--green-dim);
+    border-radius: 4px; padding: 2px 7px; font-size: 9px; letter-spacing: 0.1em;
   }
-
   textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    padding: 16px;
-    resize: vertical;
-    min-height: 100px;
+    width: 100%; background: transparent; border: none; outline: none;
+    color: var(--text); font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px; line-height: 1.7; padding: 16px; resize: vertical; min-height: 100px;
   }
-
   textarea::placeholder { color: var(--muted); }
-
-  .output-box {
-    padding: 16px;
-    font-size: 14px;
-    line-height: 1.7;
-    min-height: 60px;
-    color: var(--text);
-    white-space: pre-wrap;
-  }
-
+  .output-box { padding: 16px; font-size: 14px; line-height: 1.7; min-height: 60px; white-space: pre-wrap; }
   .output-box.tamil { color: #a8e6b8; }
-  .output-box.lang-tag {
-    font-size: 11px;
-    color: var(--amber);
-    padding: 10px 16px 0;
-    letter-spacing: 0.05em;
-  }
-
-  .btn-row {
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
+  .btn-row { width: 100%; max-width: 700px; display: flex; gap: 10px; margin-bottom: 16px; }
   button {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    border: none;
-    border-radius: 8px;
-    padding: 11px 22px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
+    border: none; border-radius: 8px; padding: 11px 22px; cursor: pointer;
+    font-weight: 600; transition: all 0.15s; display: flex; align-items: center; gap: 8px;
   }
-
-  .btn-primary {
-    background: var(--green);
-    color: #0d0f0e;
-  }
+  .btn-primary { background: var(--green); color: #0d0f0e; }
   .btn-primary:hover { background: #2eea72; }
   .btn-primary:disabled { background: var(--green-dim); opacity: 0.5; cursor: not-allowed; }
-
-  .btn-ghost {
-    background: var(--surface);
-    color: var(--muted);
-    border: 1px solid var(--border);
-  }
+  .btn-ghost { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
   .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
-
-  .btn-copy {
-    background: var(--tag-bg);
-    color: var(--green);
-    border: 1px solid var(--green-dim);
-    margin-left: auto;
-  }
+  .btn-copy { background: var(--tag-bg); color: var(--green); border: 1px solid var(--green-dim); margin-left: auto; }
   .btn-copy:hover { background: var(--green); color: #0d0f0e; }
-  .btn-copy:disabled { opacity: 0.3; cursor: not-allowed; }
-
-  .arrow-connector {
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 4px 0;
-    margin-bottom: 4px;
-  }
-
-  .arrow-connector .line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .arrow-connector .label {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
+  .btn-danger { background: #2a1515; color: #ff7070; border: 1px solid #6b2020; }
+  .btn-danger:hover { background: #3d1a1a; }
   .spinner {
-    width: 14px; height: 14px;
-    border: 2px solid rgba(255,255,255,0.2);
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: spin 0.6s linear infinite;
-    display: none;
+    width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.2);
+    border-top-color: currentColor; border-radius: 50%;
+    animation: spin 0.6s linear infinite; display: none;
   }
-
   @keyframes spin { to { transform: rotate(360deg); } }
-
   .loading .spinner { display: block; }
   .loading .btn-text { display: none; }
-
-  .error-box {
-    width: 100%;
-    max-width: 700px;
-    background: #2a1515;
-    border: 1px solid #6b2020;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 12px;
-    color: #ff7070;
-    display: none;
-    margin-bottom: 12px;
+  .msg-box {
+    width: 100%; max-width: 700px; border-radius: 8px;
+    padding: 12px 16px; font-size: 12px; display: none; margin-bottom: 12px;
   }
-
-  .step-indicator {
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    gap: 6px;
-    margin-bottom: 28px;
-  }
-
-  .step {
-    flex: 1;
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    transition: background 0.3s;
-  }
+  .error-box { background: #2a1515; border: 1px solid #6b2020; color: #ff7070; }
+  .success-box { background: #0e2318; border: 1px solid var(--green-dim); color: var(--green); }
+  .step-indicator { width: 100%; max-width: 700px; display: flex; gap: 6px; margin-bottom: 28px; }
+  .step { flex: 1; height: 3px; background: var(--border); border-radius: 2px; transition: background 0.3s; }
   .step.active { background: var(--green); }
   .step.done { background: var(--green-dim); }
+  .arrow-connector {
+    width: 100%; max-width: 700px; display: flex; align-items: center;
+    gap: 10px; padding: 4px 0; margin-bottom: 4px;
+  }
+  .arrow-connector .line { flex: 1; height: 1px; background: var(--border); }
+  .arrow-connector .label { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
+
+  /* PIN Modal */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.88); z-index: 999;
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 32px;
+    width: 100%; max-width: 320px;
+    text-align: center; display: flex; flex-direction: column; gap: 16px;
+  }
+  .modal-box h2 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; }
+  .modal-box p { font-size: 11px; color: var(--muted); line-height: 1.6; }
+  .pin-dots { display: flex; justify-content: center; gap: 14px; margin: 4px 0; }
+  .pin-dot {
+    width: 15px; height: 15px; border-radius: 50%;
+    border: 2px solid var(--muted); background: transparent; transition: all 0.15s;
+  }
+  .pin-dot.filled { background: var(--green); border-color: var(--green); box-shadow: 0 0 8px var(--green); }
+  .pin-dot.error { background: #ff7070; border-color: #ff7070; box-shadow: 0 0 8px #ff7070; }
+  .pin-keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .pin-key {
+    background: #1e2520; border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px; font-size: 18px; font-weight: 600; color: var(--text);
+    cursor: pointer; font-family: 'IBM Plex Mono', monospace; transition: all 0.1s;
+  }
+  .pin-key:hover { background: #2a3330; border-color: var(--muted); }
+  .pin-key:active { background: var(--green); color: #0d0f0e; transform: scale(0.95); }
+  .pin-key.del { color: var(--amber); }
+  .pin-key.cancel { color: #ff7070; font-size: 12px; letter-spacing: 0.04em; }
+
+  /* Locked banner */
+  .locked-banner { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
+  .key-preview { font-size: 13px; color: var(--green); flex: 1; letter-spacing: 0.04em; }
+  .locked-info { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* Input inside card */
+  .key-input-wrap { display: flex; gap: 10px; align-items: center; padding: 12px 16px; }
+  .key-input-wrap input {
+    flex: 1; background: #0d0f0e; border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; padding: 9px 12px; outline: none;
+  }
+  .key-input-wrap input:focus { border-color: var(--green-dim); }
+  .key-footer { padding: 0 16px 12px; font-size: 10px; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -256,7 +149,7 @@
   <span>Multi-lang → Tamil → Reply</span>
 </header>
 
-<!-- API KEY -->
+<!-- API KEY CARD -->
 <div class="card" style="margin-bottom:20px;">
   <div class="card-label">
     🔑 Claude API Key
@@ -264,43 +157,75 @@
   </div>
 
   <!-- Edit mode -->
-  <div id="edit-mode" style="display:flex; flex-direction:column; gap:10px; padding:12px 16px;">
-    <div style="display:flex; gap:10px; align-items:center;">
-      <input type="password" id="api-key-input"
-        placeholder="sk-ant-api03-... paste பண்ணு"
-        style="flex:1; background:#0d0f0e; border:1px solid var(--border); border-radius:6px;
-               color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:13px;
-               padding:9px 12px; outline:none;"
-      />
-      <button class="btn-ghost" onclick="toggleKeyVisibility()" style="padding:9px 14px;">👁</button>
+  <div id="edit-mode">
+    <div class="key-input-wrap">
+      <input type="password" id="api-key-input" placeholder="sk-ant-api03-... paste பண்ணு" />
+      <button class="btn-ghost" onclick="toggleVis()" style="padding:9px 13px;">👁</button>
     </div>
-    <button class="btn-primary" onclick="saveApiKey()" style="align-self:flex-start; padding:9px 22px;">🔒 Save Key</button>
+    <div style="padding: 0 16px 12px;">
+      <button class="btn-primary" onclick="saveApiKey()" style="padding:9px 22px;">🔒 Save & Lock</button>
+    </div>
   </div>
 
   <!-- Locked mode -->
-  <div id="locked-mode" style="display:none; align-items:center; gap:10px; padding:14px 16px;">
-    <div style="flex:1; font-size:13px; color:var(--green);">🔒 API Key saved — ready to use</div>
-    <button class="btn-ghost" onclick="changeApiKey()" style="padding:8px 14px; font-size:11px;">✏ Change</button>
+  <div id="locked-mode" style="display:none;">
+    <div class="locked-banner">
+      <div style="font-size:20px;">🔒</div>
+      <div style="flex:1;">
+        <div class="key-preview" id="key-preview">sk-ant-...****</div>
+        <div class="locked-info">PIN மட்டுமே unlock பண்ணும்</div>
+      </div>
+      <button class="btn-danger" onclick="showPin()" style="padding:8px 14px; font-size:11px;">🔓 Change</button>
+    </div>
   </div>
 
-  <div style="padding:0 16px 10px; font-size:10px; color:var(--muted);">
-    🔐 Refresh பண்ணாலும் இருக்கும். எங்கும் share ஆகாது.
+  <div class="key-footer">🔐 Browser-ல் permanent save. Refresh ஆனாலும் இருக்கும். PIN: 9876</div>
+</div>
+
+<!-- PIN MODAL -->
+<div class="modal-overlay" id="pin-modal">
+  <div class="modal-box">
+    <h2>🔐 PIN உள்ளிடு</h2>
+    <p>API Key change பண்ண உன் 4-digit PIN கொடு</p>
+    <div class="pin-dots">
+      <div class="pin-dot" id="d0"></div>
+      <div class="pin-dot" id="d1"></div>
+      <div class="pin-dot" id="d2"></div>
+      <div class="pin-dot" id="d3"></div>
+    </div>
+    <div id="pin-err" style="font-size:11px; color:#ff7070; min-height:18px;"></div>
+    <div class="pin-keypad">
+      <button class="pin-key" onclick="pk('1')">1</button>
+      <button class="pin-key" onclick="pk('2')">2</button>
+      <button class="pin-key" onclick="pk('3')">3</button>
+      <button class="pin-key" onclick="pk('4')">4</button>
+      <button class="pin-key" onclick="pk('5')">5</button>
+      <button class="pin-key" onclick="pk('6')">6</button>
+      <button class="pin-key" onclick="pk('7')">7</button>
+      <button class="pin-key" onclick="pk('8')">8</button>
+      <button class="pin-key" onclick="pk('9')">9</button>
+      <button class="pin-key cancel" onclick="closePin()">Cancel</button>
+      <button class="pin-key" onclick="pk('0')">0</button>
+      <button class="pin-key del" onclick="pdel()">⌫</button>
+    </div>
   </div>
 </div>
 
+<!-- STEPS -->
 <div class="step-indicator">
   <div class="step active" id="step1"></div>
   <div class="step" id="step2"></div>
   <div class="step" id="step3"></div>
 </div>
 
-<!-- STEP 1: Customer message input -->
+<!-- STEP 1: Customer message -->
 <div class="card">
   <div class="card-label">
     📥 Customer Message
     <div class="badge" id="detected-lang">Language auto-detect</div>
   </div>
-  <textarea id="customer-msg" placeholder="Customer WhatsApp message-ஐ இங்கே paste பண்ணு...&#10;(Hindi, Telugu, Kannada, English — எந்த language-லயும் ok)" rows="5"></textarea>
+  <textarea id="customer-msg" rows="5"
+    placeholder="Customer WhatsApp message இங்கே paste பண்ணு...&#10;(Hindi, Telugu, Kannada, English — எந்த language-லயும் ok)"></textarea>
 </div>
 
 <div class="btn-row">
@@ -311,28 +236,24 @@
   <button class="btn-ghost" onclick="resetAll()">↺ Reset</button>
 </div>
 
-<!-- STEP 2: Tamil translation output -->
+<!-- STEP 2: Tamil translation -->
 <div class="card" id="tamil-section" style="display:none">
-  <div class="card-label">
-    🇮🇳 Tamil Translation
-    <div class="badge">Customer என்ன கேட்டாங்க</div>
-  </div>
-  <div class="output-box tamil" id="tamil-output">...</div>
+  <div class="card-label">🇮🇳 Tamil Translation <div class="badge">Customer என்ன கேட்டாங்க</div></div>
+  <div class="output-box tamil" id="tamil-output"></div>
 </div>
 
 <div class="arrow-connector" id="reply-connector" style="display:none">
-  <div class="line"></div>
-  <div class="label">உன் REPLY</div>
-  <div class="line"></div>
+  <div class="line"></div><div class="label">உன் REPLY</div><div class="line"></div>
 </div>
 
-<!-- STEP 3: Tanglish reply input -->
+<!-- STEP 3: Tanglish reply -->
 <div class="card" id="reply-section" style="display:none">
   <div class="card-label">
     ✍️ உன் Reply (Tanglish-ல் type பண்ணு)
     <div class="badge" id="reply-lang-badge">→ Auto convert</div>
   </div>
-  <textarea id="tanglish-reply" placeholder="Eg: neenga kettathu correct, naalai evening delivery aagum. Vera enna help venumna sollunga." rows="4"></textarea>
+  <textarea id="tanglish-reply" rows="4"
+    placeholder="Eg: neenga kettathu correct, naalai evening delivery aagum..."></textarea>
 </div>
 
 <div class="btn-row" id="send-btn-row" style="display:none">
@@ -348,238 +269,234 @@
     📤 WhatsApp-க்கு அனுப்ப ready
     <div class="badge" id="output-lang-badge">Converted</div>
   </div>
-  <div class="output-box" id="final-output">...</div>
+  <div class="output-box" id="final-output"></div>
 </div>
 
 <div class="btn-row" id="copy-row" style="display:none">
   <button class="btn-copy" id="copy-btn" onclick="copyOutput()">📋 Copy Message</button>
 </div>
 
-<div class="error-box" id="error-box"></div>
+<div class="msg-box error-box" id="error-box"></div>
+<div class="msg-box success-box" id="success-box"></div>
 
 <script>
-const API_URL = "https://api.anthropic.com/v1/messages";
-let detectedLanguage = "";
-let originalCustomerMsg = "";
+  const LS_KEY = "wa_reply_api_key";
+  const CORRECT_PIN = "9876";
+  const API_URL = "https://api.anthropic.com/v1/messages";
 
-function getApiKey() {
-  return document.getElementById("api-key-input").value.trim();
-}
+  let pinBuf = "";
+  let detectedLanguage = "";
+  let originalMsg = "";
 
-async function saveApiKey() {
-  const key = getApiKey();
-  if (!key.startsWith("sk-ant-") || key.length < 20) {
-    showError("Valid API key இல்ல! sk-ant-... format-ல் இருக்கணும்");
-    return;
-  }
-  try {
-    await window.storage.set("wa_claude_api_key", key);
-    showLockedMode();
-  } catch(e) {
-    showError("Save ஆகல: " + e.message);
-  }
-}
+  // ── localStorage helpers ─────────────────────────────────
+  function lsSet(k, v) { try { localStorage.setItem(k, v); return true; } catch(e) { return false; } }
+  function lsGet(k)    { try { return localStorage.getItem(k) || ""; } catch(e) { return ""; } }
+  function lsDel(k)    { try { localStorage.removeItem(k); } catch(e) {} }
 
-function showLockedMode() {
-  document.getElementById("edit-mode").style.display = "none";
-  document.getElementById("locked-mode").style.display = "flex";
-  const badge = document.getElementById("api-status");
-  badge.textContent = "🔒 Saved";
-  badge.style.color = "var(--green)";
-}
-
-function showEditMode() {
-  document.getElementById("edit-mode").style.display = "flex";
-  document.getElementById("locked-mode").style.display = "none";
-  const badge = document.getElementById("api-status");
-  badge.textContent = "Not set";
-  badge.style.color = "";
-}
-
-function changeApiKey() {
-  document.getElementById("api-key-input").value = "";
-  showEditMode();
-  document.getElementById("api-key-input").focus();
-}
-
-function toggleKeyVisibility() {
-  const inp = document.getElementById("api-key-input");
-  inp.type = inp.type === "password" ? "text" : "password";
-}
-
-async function loadSavedKey() {
-  try {
-    const result = await window.storage.get("wa_claude_api_key");
-    if (result && result.value) {
-      document.getElementById("api-key-input").value = result.value;
-      showLockedMode();
+  // ── On page load ─────────────────────────────────────────
+  window.addEventListener("load", () => {
+    const saved = lsGet(LS_KEY);
+    if (saved && saved.startsWith("sk-ant-")) {
+      document.getElementById("api-key-input").value = saved;
+      showLockedMode(saved);
     }
-  } catch(e) {
-    // No saved key
-  }
-}
-
-window.addEventListener("load", loadSavedKey);
-
-async function callClaude(prompt, systemPrompt) {
-  const apiKey = getApiKey();
-  if (!apiKey) throw new Error("API Key இல்ல! மேல box-ல் உன் Claude API key போடு.");
-
-  const resp = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-      "anthropic-dangerous-direct-browser-access": "true"
-    },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1000,
-      system: systemPrompt,
-      messages: [{ role: "user", content: prompt }]
-    })
   });
-  if (!resp.ok) {
-    const err = await resp.json().catch(() => ({}));
-    throw new Error(err?.error?.message || `API error: ${resp.status}`);
+
+  // ── API Key ──────────────────────────────────────────────
+  function saveApiKey() {
+    const key = document.getElementById("api-key-input").value.trim();
+    if (!key.startsWith("sk-ant-") || key.length < 20) {
+      showError("Valid API key இல்ல! sk-ant-... format-ல் இருக்கணும்.");
+      return;
+    }
+    const ok = lsSet(LS_KEY, key);
+    if (!ok) { showError("Browser localStorage disabled — file-ஐ directly open பண்ணு."); return; }
+    showLockedMode(key);
+    showSuccess("✅ Key பாதுகாப்பாக save ஆச்சு! Refresh ஆனாலும் இருக்கும்.");
   }
-  const data = await resp.json();
-  return data.content.map(b => b.text || "").join("").trim();
-}
 
-function setLoading(btnId, loading) {
-  const btn = document.getElementById(btnId);
-  btn.classList.toggle("loading", loading);
-  btn.disabled = loading;
-}
-
-function showError(msg) {
-  const box = document.getElementById("error-box");
-  box.textContent = "⚠ " + msg;
-  box.style.display = "block";
-  setTimeout(() => box.style.display = "none", 5000);
-}
-
-function updateSteps(active) {
-  for (let i = 1; i <= 3; i++) {
-    const el = document.getElementById("step" + i);
-    if (i < active) { el.className = "step done"; }
-    else if (i === active) { el.className = "step active"; }
-    else { el.className = "step"; }
+  function showLockedMode(key) {
+    const masked = key.slice(0, 10) + "..." + key.slice(-4);
+    document.getElementById("key-preview").textContent = masked;
+    document.getElementById("edit-mode").style.display = "none";
+    document.getElementById("locked-mode").style.display = "block";
+    const b = document.getElementById("api-status");
+    b.textContent = "🔒 Locked"; b.style.color = "var(--green)";
   }
-}
 
-async function analyzeMessage() {
-  const msg = document.getElementById("customer-msg").value.trim();
-  if (!msg) { showError("Customer message paste பண்ணு!"); return; }
-
-  setLoading("analyze-btn", true);
-  originalCustomerMsg = msg;
-
-  try {
-    const system = `You are a multilingual assistant for an Indian business.
-Your job: 
-1. Detect the language of the customer message
-2. Translate it to Tamil (Tamil script)
-3. Return ONLY JSON in this format (no markdown, no extra text):
-{"language": "Hindi", "language_code": "hi", "tamil_translation": "...tamil text here..."}`;
-
-    const result = await callClaude(msg, system);
-    const parsed = JSON.parse(result.replace(/```json|```/g, "").trim());
-
-    detectedLanguage = parsed.language;
-
-    document.getElementById("detected-lang").textContent = "🌐 " + parsed.language;
-    document.getElementById("tamil-output").textContent = parsed.tamil_translation;
-    document.getElementById("reply-lang-badge").textContent = "→ " + parsed.language + "-ல் convert ஆகும்";
-    document.getElementById("output-lang-badge").textContent = parsed.language;
-
-    document.getElementById("tamil-section").style.display = "block";
-    document.getElementById("reply-connector").style.display = "flex";
-    document.getElementById("reply-section").style.display = "block";
-    document.getElementById("send-btn-row").style.display = "flex";
-    document.getElementById("output-section").style.display = "none";
-    document.getElementById("copy-row").style.display = "none";
-
-    updateSteps(2);
-    document.getElementById("tanglish-reply").focus();
-
-  } catch (e) {
-    showError("Translation failed: " + e.message);
-  } finally {
-    setLoading("analyze-btn", false);
+  function showEditMode() {
+    document.getElementById("edit-mode").style.display = "block";
+    document.getElementById("locked-mode").style.display = "none";
+    const b = document.getElementById("api-status");
+    b.textContent = "Not set"; b.style.color = "";
+    document.getElementById("api-key-input").focus();
   }
-}
 
-async function convertReply() {
-  const reply = document.getElementById("tanglish-reply").value.trim();
-  if (!reply) { showError("Reply type பண்ணு!"); return; }
-  if (!detectedLanguage) { showError("முதல்ல customer message analyze பண்ணு"); return; }
+  function toggleVis() {
+    const i = document.getElementById("api-key-input");
+    i.type = i.type === "password" ? "text" : "password";
+  }
 
-  setLoading("convert-btn", true);
+  function getKey() { return lsGet(LS_KEY) || document.getElementById("api-key-input").value.trim(); }
 
-  try {
-    const system = `You are a translator for an Indian business WhatsApp conversation.
-The user will give you a reply typed in Tanglish (Tamil words written in English letters, mixed with English).
+  // ── PIN ──────────────────────────────────────────────────
+  function showPin() { pinBuf = ""; updateDots(); document.getElementById("pin-err").textContent = ""; document.getElementById("pin-modal").classList.add("show"); }
+  function closePin() { pinBuf = ""; updateDots(); document.getElementById("pin-modal").classList.remove("show"); }
 
-Your job:
-1. Analyze the CUSTOMER'S ORIGINAL MESSAGE very carefully for:
-   - LANGUAGE MIX RATIO: If they wrote 50% Hindi + 50% English → your reply must also be 50% Hindi + 50% English. If they wrote pure Hindi → reply pure Hindi. If Hinglish (mixed) → reply Hinglish in same proportion. This is the most important rule.
-   - SCRIPT: If they typed Hindi in Roman script (transliterated) → reply in Roman script, not Devanagari. Match exactly.
-   - Emojis → use similar emojis
-   - Casual/formal tone → match it
-   - Short/long → match the length style
-   - Their energy (angry, friendly, urgent) → respond appropriately
-2. Convert my Tanglish reply into the SAME language style the customer used
-3. Must feel like a human reply — not a translation
+  function pk(d) {
+    if (pinBuf.length >= 4) return;
+    pinBuf += d; updateDots();
+    if (pinBuf.length === 4) setTimeout(checkPin, 150);
+  }
+  function pdel() { pinBuf = pinBuf.slice(0, -1); updateDots(); }
 
-Return ONLY the final message. No explanations, no quotes, no extra text.`;
+  function updateDots() {
+    for (let i = 0; i < 4; i++) {
+      const dot = document.getElementById("d" + i);
+      dot.className = "pin-dot" + (i < pinBuf.length ? " filled" : "");
+    }
+  }
 
-    const prompt = `CUSTOMER'S ORIGINAL MESSAGE (analyze its format/tone/style):
-"${originalCustomerMsg}"
+  function checkPin() {
+    if (pinBuf === CORRECT_PIN) {
+      closePin();
+      lsDel(LS_KEY);
+      document.getElementById("api-key-input").value = "";
+      showEditMode();
+      showSuccess("🔓 Unlocked! புதிய API key போடு.");
+    } else {
+      for (let i = 0; i < 4; i++) document.getElementById("d" + i).className = "pin-dot error";
+      document.getElementById("pin-err").textContent = "❌ தப்பான PIN! Try again.";
+      pinBuf = "";
+      setTimeout(() => { updateDots(); document.getElementById("pin-err").textContent = ""; }, 1200);
+    }
+  }
 
-MY REPLY in Tanglish (convert this to ${detectedLanguage}, matching customer's format/tone):
+  document.addEventListener("keydown", e => {
+    if (!document.getElementById("pin-modal").classList.contains("show")) return;
+    if (e.key >= "0" && e.key <= "9") pk(e.key);
+    else if (e.key === "Backspace") pdel();
+    else if (e.key === "Escape") closePin();
+  });
+
+  // ── Claude API ───────────────────────────────────────────
+  async function callClaude(prompt, system) {
+    const key = getKey();
+    if (!key) throw new Error("API Key இல்ல! மேல box-ல் key போடு.");
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": key,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        system,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+    if (!res.ok) {
+      const e = await res.json().catch(() => ({}));
+      throw new Error(e?.error?.message || "API error " + res.status);
+    }
+    const d = await res.json();
+    return d.content.map(b => b.text || "").join("").trim();
+  }
+
+  // ── UI helpers ───────────────────────────────────────────
+  function setLoading(id, on) { const b = document.getElementById(id); b.classList.toggle("loading", on); b.disabled = on; }
+
+  function showError(msg) {
+    const b = document.getElementById("error-box");
+    b.textContent = "⚠ " + msg; b.style.display = "block";
+    document.getElementById("success-box").style.display = "none";
+    setTimeout(() => b.style.display = "none", 5000);
+  }
+  function showSuccess(msg) {
+    const b = document.getElementById("success-box");
+    b.textContent = msg; b.style.display = "block";
+    document.getElementById("error-box").style.display = "none";
+    setTimeout(() => b.style.display = "none", 4000);
+  }
+
+  function setSteps(n) {
+    for (let i = 1; i <= 3; i++) {
+      const el = document.getElementById("step" + i);
+      el.className = "step" + (i < n ? " done" : i === n ? " active" : "");
+    }
+  }
+
+  // ── Main functions ───────────────────────────────────────
+  async function analyzeMessage() {
+    const msg = document.getElementById("customer-msg").value.trim();
+    if (!msg) { showError("Customer message paste பண்ணு!"); return; }
+    originalMsg = msg;
+    setLoading("analyze-btn", true);
+    try {
+      const sys = `You are a multilingual assistant for an Indian business.
+Detect the language and translate to Tamil.
+Return ONLY valid JSON, no markdown:
+{"language":"Hindi","language_code":"hi","tamil_translation":"..."}`;
+      const raw = await callClaude(msg, sys);
+      const parsed = JSON.parse(raw.replace(/```json|```/g, "").trim());
+      detectedLanguage = parsed.language;
+      document.getElementById("detected-lang").textContent = "🌐 " + parsed.language;
+      document.getElementById("tamil-output").textContent = parsed.tamil_translation;
+      document.getElementById("reply-lang-badge").textContent = "→ " + parsed.language + "-ல் convert ஆகும்";
+      document.getElementById("output-lang-badge").textContent = parsed.language;
+      ["tamil-section","reply-connector","reply-section","send-btn-row"].forEach(id =>
+        document.getElementById(id).style.display = id === "reply-connector" ? "flex" : "block");
+      document.getElementById("output-section").style.display = "none";
+      document.getElementById("copy-row").style.display = "none";
+      setSteps(2);
+      document.getElementById("tanglish-reply").focus();
+    } catch(e) { showError("Translation failed: " + e.message); }
+    finally { setLoading("analyze-btn", false); }
+  }
+
+  async function convertReply() {
+    const reply = document.getElementById("tanglish-reply").value.trim();
+    if (!reply) { showError("Reply type பண்ணு!"); return; }
+    if (!detectedLanguage) { showError("முதல்ல customer message analyze பண்ணு."); return; }
+    setLoading("convert-btn", true);
+    try {
+      const sys = `You are a translator for an Indian business WhatsApp conversation.
+Convert my Tanglish reply to match the EXACT language style, mix ratio, script, tone and energy of the customer's original message.
+Return ONLY the final message — no explanations, no quotes.`;
+      const prompt = `CUSTOMER ORIGINAL (analyze style/tone/language mix):
+"${originalMsg}"
+
+MY TANGLISH REPLY (convert to ${detectedLanguage} matching customer's style):
 "${reply}"`;
-    const converted = await callClaude(prompt, system);
-
-    document.getElementById("final-output").textContent = converted;
-    document.getElementById("output-section").style.display = "block";
-    document.getElementById("copy-row").style.display = "flex";
-
-    updateSteps(3);
-
-  } catch (e) {
-    showError("Conversion failed: " + e.message);
-  } finally {
-    setLoading("convert-btn", false);
+      const out = await callClaude(prompt, sys);
+      document.getElementById("final-output").textContent = out;
+      document.getElementById("output-section").style.display = "block";
+      document.getElementById("copy-row").style.display = "flex";
+      setSteps(3);
+    } catch(e) { showError("Conversion failed: " + e.message); }
+    finally { setLoading("convert-btn", false); }
   }
-}
 
-function copyOutput() {
-  const text = document.getElementById("final-output").textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById("copy-btn");
-    btn.textContent = "✅ Copied!";
-    setTimeout(() => btn.textContent = "📋 Copy Message", 2000);
-  });
-}
+  function copyOutput() {
+    navigator.clipboard.writeText(document.getElementById("final-output").textContent).then(() => {
+      const b = document.getElementById("copy-btn");
+      b.textContent = "✅ Copied!";
+      setTimeout(() => b.textContent = "📋 Copy Message", 2000);
+    });
+  }
 
-function resetAll() {
-  document.getElementById("customer-msg").value = "";
-  document.getElementById("tanglish-reply").value = "";
-  document.getElementById("tamil-section").style.display = "none";
-  document.getElementById("reply-connector").style.display = "none";
-  document.getElementById("reply-section").style.display = "none";
-  document.getElementById("send-btn-row").style.display = "none";
-  document.getElementById("output-section").style.display = "none";
-  document.getElementById("copy-row").style.display = "none";
-  document.getElementById("detected-lang").textContent = "Language auto-detect";
-  detectedLanguage = "";
-  originalCustomerMsg = "";
-  updateSteps(1);
-  document.getElementById("customer-msg").focus();
-}
+  function resetAll() {
+    ["customer-msg","tanglish-reply"].forEach(id => document.getElementById(id).value = "");
+    ["tamil-section","reply-connector","reply-section","send-btn-row","output-section","copy-row"]
+      .forEach(id => document.getElementById(id).style.display = "none");
+    document.getElementById("detected-lang").textContent = "Language auto-detect";
+    detectedLanguage = ""; originalMsg = "";
+    setSteps(1);
+    document.getElementById("customer-msg").focus();
+  }
 </script>
 </body>
 </html>
